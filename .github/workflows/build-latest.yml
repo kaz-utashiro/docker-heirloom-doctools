@@ -1,0 +1,43 @@
+name: Build latest
+on:
+  push:
+    branches: main
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set version
+        run: echo NEW_VERSION=v1.${{ github.run_number }} >> $GITHUB_ENV
+        run: echo PACKAGE=tecolicom/heirloom-doctools >> $GITHUB_ENV
+      - name: Set git tag
+        run: |
+          git tag $NEW_VERSION
+          git push --tags
+      - name: Build Docker image
+        uses: ./.github/actions/build/
+        with:
+          context: ./build/
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
+            ${{ env.PACKAGE }}:latest
+            ghcr.io/${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
+            ghcr.io/${{ env.PACKAGE }}:latest
