@@ -48,5 +48,3 @@ jobs:
           tags: |
             ${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
             ${{ env.PACKAGE }}:latest
-            ghcr.io/${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
-            ghcr.io/${{ env.PACKAGE }}:latest
