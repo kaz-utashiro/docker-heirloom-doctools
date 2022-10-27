@@ -46,7 +46,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
-            ${{ env.PACKAGE }}:latest
             ghcr.io/${{ env.PACKAGE }}:${{ env.NEW_VERSION }}
             ghcr.io/${{ env.PACKAGE }}:latest
