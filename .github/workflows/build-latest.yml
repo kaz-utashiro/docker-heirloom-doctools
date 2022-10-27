@@ -24,8 +24,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set version
-        run: echo NEW_VERSION=v1.${{ github.run_number }} >> $GITHUB_ENV
-        run: echo PACKAGE=tecolicom/heirloom-doctools >> $GITHUB_ENV
+        run: |
+          (
+            echo NEW_VERSION=v1.${{ github.run_number }}
+            echo PACKAGE=tecolicom/heirloom-doctools
+          ) >> $GITHUB_ENV
       - name: Set git tag
         run: |
           git tag $NEW_VERSION
