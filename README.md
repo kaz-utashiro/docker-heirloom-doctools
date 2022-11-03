@@ -14,4 +14,4 @@ Docker image for Heirloom Doctools.
 
 ## LICENSE
 
-MIT ©︎ 2022 Kaz Utashiro
+MIT ©︎ 2022 tecolicom

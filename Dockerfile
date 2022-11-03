@@ -6,5 +6,5 @@ RUN apk update \
      heirloom-doctools-doc \
      bash bmake \
      font-ipa font-ipaex
-COPY inputrc /root/.inputrc
+COPY inputrc $HOME/.inputrc
 CMD [ "bash" ]
