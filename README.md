@@ -5,7 +5,6 @@ Docker image for Heirloom Doctools.
 ## RELEASE
 
 - https://hub.docker.com/repository/docker/tecolicom/heirloom-doctools
-- https://github.com/tecolicom/docker-heirloom-doctools/pkgs/container/heirloom-doctools
 
 ## SEE ALSO
 
