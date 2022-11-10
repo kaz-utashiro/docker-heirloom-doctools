@@ -1,5 +1,6 @@
 FROM alpine:latest
 WORKDIR /workdir
+ENV HOME=/root
 RUN apk update \
   && apk add --upgrade \
      heirloom-doctools \
