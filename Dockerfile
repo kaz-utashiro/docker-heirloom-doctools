@@ -9,4 +9,5 @@ RUN apk update \
      font-ipa font-ipaex \
   && rm -f /var/cache/apk/*
 COPY inputrc $HOME/.inputrc
+COPY bashrc $HOME/.bashrc
 CMD [ "bash" ]
