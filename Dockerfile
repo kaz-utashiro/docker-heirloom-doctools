@@ -10,6 +10,7 @@ RUN apk update \
      heirloom-doctools-doc \
      bash bmake make gcc musl-dev \
      font-ipa font-ipaex \
+     ghostscript \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
 RUN cd /usr/share/fonts/ipafont && \
