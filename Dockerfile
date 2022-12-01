@@ -12,6 +12,11 @@ RUN apk update \
      font-ipa font-ipaex \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
+RUN cpanm -n \
+    App::Greple \
+    Getopt::EX::Hashed \
+    Unicode::EastAsianWidth \
+    Moo JSON
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
 CMD [ "bash" ]
