@@ -12,6 +12,9 @@ RUN apk update \
      font-ipa font-ipaex \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
+RUN cd /usr/share/fonts/ipafont && \
+    ln -s ipam.ttf IPAMincho.ttf && \
+    ln -s ipag.ttf IPAGothic.ttf
 RUN cpanm -n \
     App::Greple \
     Getopt::EX::Hashed \
