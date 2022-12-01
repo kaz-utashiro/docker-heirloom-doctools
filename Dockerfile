@@ -8,9 +8,9 @@ RUN apk update \
   && apk add --upgrade \
      heirloom-doctools \
      heirloom-doctools-doc \
-     bash bmake \
+     bash bmake make \
      font-ipa font-ipaex \
-     perl \
+     perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
