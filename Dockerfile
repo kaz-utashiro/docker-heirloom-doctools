@@ -8,7 +8,7 @@ RUN apk update \
   && apk add --upgrade \
      heirloom-doctools \
      heirloom-doctools-doc \
-     bash bmake make gcc \
+     bash bmake make gcc musl-dev \
      font-ipa font-ipaex \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
