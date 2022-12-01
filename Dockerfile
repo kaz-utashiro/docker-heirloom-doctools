@@ -10,6 +10,7 @@ RUN apk update \
      heirloom-doctools-doc \
      bash bmake \
      font-ipa font-ipaex \
+     perl \
   && rm -f /var/cache/apk/*
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
