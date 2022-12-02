@@ -13,9 +13,14 @@ RUN apk update \
      ghostscript \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
-RUN cd /usr/share/fonts/ipafont && \
-    ln -s ipam.ttf IPAMincho.ttf && \
-    ln -s ipag.ttf IPAGothic.ttf
+RUN cd /usr/share/fonts/ipafont    && \
+    ln -s ipam.ttf  IPAMincho.ttf  && \
+    ln -s ipag.ttf  IPAGothic.ttf  && \
+    ln -s ipamp.ttf IPAPMincho.ttf && \
+    ln -s ipagp.ttf IPAPGothic.ttf
+RUN cd /usr/share/fonts/ipaexfont     && \
+    ln -s ipaexm.ttf  IPAexMincho.ttf && \
+    ln -s ipaexg.ttf  IPAexGothic.ttf
 RUN cpanm -n \
     App::Greple \
     Getopt::EX::Hashed \
