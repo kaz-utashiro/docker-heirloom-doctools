@@ -23,6 +23,7 @@ RUN cd /usr/share/fonts/ipaexfont     && \
     ln -s ipaexg.ttf  IPAexGothic.ttf
 RUN cpanm -n \
     App::Greple \
+    Text::VisualWidth::PP \
     Getopt::EX::Hashed \
     Unicode::EastAsianWidth \
     Moo JSON
