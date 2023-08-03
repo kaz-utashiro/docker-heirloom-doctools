@@ -22,11 +22,8 @@ RUN cd /usr/share/fonts/ipafont    && \
 RUN cd /usr/share/fonts/ipaexfont     && \
     ln -s ipaexm.ttf  IPAexMincho.ttf && \
     ln -s ipaexg.ttf  IPAexGothic.ttf
-RUN cpanm -q -n \
-    App::Greple::frame App::Greple::subst App::Greple::xp App::Greple::git \
-    Text::VisualPrintf \
-    Getopt::EX::Hashed \
-    Try::Tiny Moo JSON
+RUN cpanm --installdeps -nq \
+    https://github.com/kaz-utashiro/App-Greple-fbsd2.git
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
 CMD [ "bash" ]
