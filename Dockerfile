@@ -22,11 +22,10 @@ RUN cd /usr/share/fonts/ipaexfont     && \
     ln -s ipaexm.ttf  IPAexMincho.ttf && \
     ln -s ipaexg.ttf  IPAexGothic.ttf
 RUN cpanm -n \
-    App::Greple \
-    Text::VisualWidth::PP \
+    App::Greple::frame App::Greple::subst App::Greple::xp App::Greple::git@0.04 \
+    Text::VisualPrintf \
     Getopt::EX::Hashed \
-    Unicode::EastAsianWidth \
-    Moo JSON
+    Try::Tiny Moo JSON
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
 CMD [ "bash" ]
