@@ -11,6 +11,7 @@ RUN apk update \
      bash bmake make gcc musl-dev \
      font-ipa font-ipaex \
      ghostscript \
+     git inkscape \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
 RUN cd /usr/share/fonts/ipafont    && \
@@ -21,8 +22,8 @@ RUN cd /usr/share/fonts/ipafont    && \
 RUN cd /usr/share/fonts/ipaexfont     && \
     ln -s ipaexm.ttf  IPAexMincho.ttf && \
     ln -s ipaexg.ttf  IPAexGothic.ttf
-RUN cpanm -n \
-    App::Greple::frame App::Greple::subst App::Greple::xp App::Greple::git@0.04 \
+RUN cpanm -q -n \
+    App::Greple::frame App::Greple::subst App::Greple::xp App::Greple::git \
     Text::VisualPrintf \
     Getopt::EX::Hashed \
     Try::Tiny Moo JSON
