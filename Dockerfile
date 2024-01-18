@@ -24,6 +24,7 @@ RUN cd /usr/share/fonts/ipaexfont     && \
     ln -s ipaexg.ttf  IPAexGothic.ttf
 RUN cpanm --installdeps -nq \
     https://github.com/kaz-utashiro/App-Greple-fbsd2.git
+RUN ln -s heirloom-doctools.sh.disabled /etc/profile.d/heirloom-doctools.sh
 COPY inputrc $HOME/.inputrc
 COPY bashrc $HOME/.bashrc
 CMD [ "bash" ]
