@@ -4,7 +4,7 @@ ENV HOME=/root
 ENV LANG=ja_JP.UTF-8
 ENV LC_CTYPE=ja_JP.UTF-8
 ENV TROFFONTS=/usr/share/fonts/ipafont:/usr/share/fonts/ipaexfont
-ENV PATH=usr/lib/heirloom-doctools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH=/usr/lib/heirloom-doctools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV MANPATH=/usr/lib/heirloom-doctools/man
 RUN apk update \
   && apk add --upgrade \
