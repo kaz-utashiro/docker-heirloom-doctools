@@ -13,10 +13,12 @@ RUN apk update \
      heirloom-doctools-doc \
      bash bmake make gcc musl-dev \
      font-ipa font-ipaex \
+     font-noto-cjk font-noto-cjk-extra \
      ghostscript \
      git inkscape \
      perl perl-dev perl-app-cpanminus \
   && rm -f /var/cache/apk/*
+ENV TROFFONTS=/usr/share/fonts/noto:$TROFFONTS
 
 RUN cpanm --installdeps -nq \
     https://github.com/kaz-utashiro/App-Greple-fbsd2.git
@@ -41,6 +43,8 @@ COPY --from=texlive \
     /usr/local/texlive/20??/texmf-dist/fonts/opentype/public/haranoaji-extra/ \
     /usr/share/fonts/haranoaji-extra/
 ENV TROFFONTS=/usr/share/fonts/haranoaji:/usr/share/fonts/haranoaji-extra:$TROFFONTS
+
+RUN fc-cache -fv
 
 WORKDIR /workdir
 CMD [ "bash" ]
